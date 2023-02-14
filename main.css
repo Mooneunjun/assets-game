@@ -1,0 +1,244 @@
+body {
+  background-color: black;
+}
+
+.warp {
+  background-color: white;
+  width: 90%;
+  max-width: 1920px;
+  margin: 0 auto;
+  border: 1px solid black;
+}
+
+header {
+  background-color: black;
+  text-align: center;
+  padding-top: 20px;
+  position: relative;
+  color: white;
+}
+
+header .gnb {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 300px 1fr 300px;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    "logo gnb-menu menu"
+    "search search search";
+}
+
+header .gnb .logo {
+  user-select: none;
+  display: flex;
+  align-items: center;
+  grid-area: logo;
+  cursor: pointer;
+}
+
+header .gnb .logo svg {
+  margin-right: 5px;
+}
+header .gnb .gnb-menu {
+  user-select: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-area: gnb-menu;
+}
+
+header .gnb .gnb-menu ul {
+  width: 300px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+header .gnb .gnb-menu ul li {
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+}
+
+header .gnb .gnb-menu ul li::before {
+  content: "";
+  height: 2px;
+  width: 0%;
+  background-color: white;
+
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  transition: 0.3s;
+}
+
+header .gnb .gnb-menu ul .active::before {
+  content: "";
+  height: 2px;
+  width: 70%;
+  background-color: white;
+
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  transition: 0.3s ease-in-out;
+}
+
+header .gnb .gnb-menu ul li:hover {
+  color: rgb(173, 173, 173);
+}
+
+header .gnb .gnb-menu ul li:hover::before {
+  content: "";
+  height: 2px;
+  width: 5px;
+  background-color: white;
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+header .gnb .gnb-menu ul .active:hover {
+  color: white;
+}
+
+header .gnb .gnb-menu ul .active:hover::before {
+  width: 70%;
+}
+
+header .gnb .menu {
+  grid-area: menu;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  font-weight: bold;
+}
+
+header .gnb .menu p {
+  background: transparent;
+  border-radius: 30px;
+  border: 0;
+  cursor: pointer;
+  margin: 0;
+  text-align: inherit;
+  padding: 14px;
+  transition: color 250ms ease;
+}
+
+header .gnb .menu p:hover {
+  transition: color 250ms ease;
+  background-color: rgb(172, 172, 172, 0.2);
+}
+
+header .gnb .menu > svg {
+  background: transparent;
+  border: 0;
+  border-radius: 30px;
+  cursor: pointer;
+  margin: 0;
+  text-align: inherit;
+  padding: 14px;
+}
+
+header .gnb .menu > svg:hover {
+  transition: color 250ms ease;
+  background-color: rgb(172, 172, 172, 0.2);
+}
+
+header .gnb .menu .profile {
+  margin-left: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  width: 60px;
+  padding: 5px 5px 5px 10px;
+  color: gray;
+  border-radius: 21px;
+  border: 1px solid #dddddd;
+  transition: box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+header .gnb .menu .profile :nth-child(1) {
+  padding-left: 1px;
+}
+
+header .gnb .menu .profile:hover {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.18);
+}
+
+header .gnb .search {
+  grid-area: search;
+  width: 80%;
+  min-width: 800px;
+  margin: 0 auto;
+}
+
+header .gnb .search .searchUi {
+  background-color: white;
+  color: black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  border-radius: 50px;
+}
+
+header .gnb .search .searchUi li {
+  text-align: left;
+  margin: 0px;
+  padding: 20px 86.4px 20px 30px;
+  font-weight: bold;
+  border-radius: 50px;
+  position: relative;
+}
+
+header .gnb .search .searchUi li::after {
+  position: absolute;
+  content: "";
+  width: 1px;
+  border: none;
+  height: calc(100% - calc(20px * 2));
+  right: 0;
+  top: 50%;
+  transform: translate(0, -50%);
+  background-color: lightgray;
+}
+
+header .gnb .search .searchUi :nth-child(4) {
+  margin: 0px;
+  display: flex;
+  align-items: center;
+  padding: 6px 10px 6px 20px;
+  justify-content: flex-end;
+}
+
+header .gnb .search .searchUi :last-of-type::after {
+  display: none;
+}
+
+header .gnb .search .searchUi li:hover {
+  background-color: lightgray;
+}
+
+header .gnb .search .searchUi li span {
+  color: gray;
+  font-size: 12px;
+  font-weight: normal;
+}
+
+header .gnb .search .searchUi li button {
+  margin-left: 80px;
+  font-weight: bold;
+  color: #dddddd;
+  border: none;
+  background-color: #ff385c;
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  border-radius: 50%;
+  padding: 0px;
+}
