@@ -172,8 +172,9 @@ header .gnb .menu .profile:hover {
 
 header .gnb .search {
   grid-area: search;
-  width: 80%;
-  min-width: 800px;
+
+  min-width: 850px;
+  max-width: 850px;
   margin: 0 auto;
 }
 
@@ -190,7 +191,7 @@ header .gnb .search .searchUi {
 header .gnb .search .searchUi li {
   text-align: left;
   margin: 0px;
-  padding: 20px 86.4px 20px 30px;
+  padding: 20px 103.1px 20px 30px;
   font-weight: bold;
   border-radius: 50px;
   position: relative;
