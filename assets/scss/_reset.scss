@@ -1,0 +1,20 @@
+/* 스타일을 입혀줘 */
+body {
+  background-color: #fefefe;
+  color: #000;
+  padding: 0px;
+  margin: 0px;
+  font-family: "Noto Sans KR", sans-serif;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  box-sizing: border-box;
+}
+* {
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+  transition: opacity 0.3s, margin-top 0.5s ease-in-out; /* 애니메이션 시간 설정 */
+  transition: all 0.3s;
+}
+button {
+  -webkit-tap-highlight-color: rgb(155, 155, 155);
+}

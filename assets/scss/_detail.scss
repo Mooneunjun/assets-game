@@ -1,0 +1,29 @@
+.assets-detail {
+  .assets-detail-box {
+    padding: 0px 25px;
+    font-size: 16px;
+    font-weight: 700;
+    color: #888;
+    max-width: 350px;
+
+    margin: 0;
+    margin-top: 10px;
+    .assets-detail-all {
+      display: flex;
+      align-items: center;
+    }
+
+    svg {
+      position: relative;
+      top: 1px;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .assets-detail-box {
+      padding: 0px 5px;
+      margin: 0 auto;
+      margin-top: 10px;
+    }
+  }
+}

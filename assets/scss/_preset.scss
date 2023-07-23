@@ -1,0 +1,96 @@
+.hidden {
+  display: none !important;
+}
+
+.assets-card.hidden {
+  opacity: 0;
+}
+
+/* 슬라이드 업 애니메이션 */
+@keyframes slideUp {
+  from {
+    transform: translate(0%);
+  }
+  to {
+    transform: translateY(-132%);
+  }
+}
+
+@keyframes slideUp1 {
+  from {
+    transform: translateY(0%);
+  }
+  to {
+    transform: translateY(-173%);
+  }
+}
+@keyframes slideUp2 {
+  from {
+    transform: translateY(0%);
+  }
+  to {
+    transform: translateY(-214%);
+  }
+}
+
+@keyframes slideUp3 {
+  from {
+    transform: translateY(0%);
+  }
+  to {
+    transform: translateY(-229%);
+  }
+}
+
+@keyframes slideUp4 {
+  from {
+    transform: translateY(0%);
+  }
+  to {
+    transform: translateY(-129%);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(250%);
+  }
+}
+
+@keyframes slideDown1 {
+  from {
+    transform: translateY(-132%);
+  }
+  to {
+    transform: translateY(0%);
+  }
+}
+
+.slide-up {
+  animation: slideUp 0.5s ease;
+}
+
+.slide-up1 {
+  animation: slideUp1 0.5s ease;
+}
+
+.slide-up2 {
+  animation: slideUp2 0.5s ease;
+}
+.slide-up3 {
+  animation: slideUp3 0.5s ease;
+}
+
+.slide-up4 {
+  animation: slideUp4 0.5s ease;
+}
+
+.slide-down {
+  animation: slideDown 1s ease;
+}
+.slide-down1 {
+  animation: slideDown1 0.5s ease;
+}

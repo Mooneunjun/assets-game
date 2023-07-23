@@ -1,0 +1,45 @@
+footer {
+  /* footer를 화면 하단에 고정시킵니다. */
+  position: fixed;
+  //가운데로 정렬
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  max-width: 768px;
+  width: 100%;
+  height: 90px; /* footer의 높이를 설정합니다. */
+  background-color: #fefefe;
+  z-index: 1000;
+  button {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+  .footer {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    .main,
+    .home,
+    .other {
+      margin: 20px 0 0 0;
+      border: none;
+      background-color: #fff;
+      font-size: 15px;
+      color: black;
+      border-radius: 100%;
+      width: 34px;
+      height: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .main {
+      margin-left: 50px;
+    }
+
+    .other {
+      margin-right: 50px;
+    }
+  }
+}
