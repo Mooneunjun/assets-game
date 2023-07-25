@@ -4,6 +4,7 @@ const assets = document.querySelector(".assets");
 const wallet = document.querySelector(".wallet");
 const headerDate = document.querySelector(".header-date");
 const headerClose = document.querySelector(".header-close");
+const closebtn = document.querySelector(".close-button");
 
 // 状态变量
 let isAnimating = false;
@@ -14,16 +15,6 @@ let progress;
 let animationFrameId;
 let isDropping = false;
 let isClosing = true;
-let topPosition; // 将这个变量移动到这里使其在整个函数中都可用
-
-// 动画持续时间
-let riseDuration = 400; // 上升阶段的持续时间，例如1秒，你可以按照自己的需要调整
-let dropDuration = 300; // 下降阶段的持续时间，例如0.5秒，你可以按照自己的需要调整
-
-// 动画函数
-function easeInOut(p) {
-  return p < 0.5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2;
-}
 
 // 获取元素的offsetTop
 function getOffsetTop(element) {
@@ -38,25 +29,29 @@ function getOffsetTop(element) {
 }
 
 // 动画函数
+// 动画函数
+// 动画函数
+// 动画函数
 function animationStep(timestamp) {
   if (!start) start = timestamp;
-  let runtime = timestamp - start; // 计算运行时间
+  progress = timestamp - start;
 
+  // 如果没有在下降状态
   if (!isDropping) {
-    progress = runtime / riseDuration;
-    current = easeInOut(progress) * target;
-    if (progress >= 1) {
-      start = performance.now();
-      topPosition = current; // 记录上升的最终位置
+    current = Math.min(current + progress * 0.09, target);
+    if (current === target) {
+      start = null; // 重置start
+      // 记录上升的最终位置
+      let topPosition = target;
+      // 开始下降
+
       isDropping = true;
-      target = 15; // 准备下降10px
+      target = topPosition - 10; // 从上升的最终位置下降10px
+      start = null; // 下降动画开始时，再次重置start
     }
   } else {
-    progress = runtime / dropDuration;
-    // 下降过程，通过调整运行时间的系数可以改变下降的速度，这里是0.2
-    current = topPosition - easeInOut(progress) * target;
-    if (progress >= 1) {
-      // 在下降完成后结束动画
+    current = Math.max(current - progress * 0.003, target);
+    if (current === target) {
       isAnimating = false;
       isDropping = false;
     }
@@ -75,12 +70,15 @@ function startAnimation(event) {
   if (!isClosing) return;
 
   isClosing = false;
+
   const clickedCard = event.currentTarget;
+
   let distanceToTop = getOffsetTop(clickedCard);
+
   isAnimating = true;
   current = 0;
   target = distanceToTop - 70;
-  start = performance.now();
+  start = null;
 
   clickedCard.classList.add("active");
   assetsCards.forEach((card) => {
@@ -109,6 +107,7 @@ function startAnimation(event) {
 
 // 结束动画的函数
 function stopAnimation() {
+  isClosing = true;
   isAnimating = false;
   isDropping = false;
   cancelAnimationFrame(animationFrameId);
@@ -121,7 +120,6 @@ function stopAnimation() {
     }, 300);
     setTimeout(() => {
       card.style.opacity = "1";
-      isClosing = true;
     }, 400);
     card.style.transform = "";
   });
@@ -134,8 +132,8 @@ function stopAnimation() {
   }, 300);
   wallet.classList.remove("disabled");
 
-  headerDate.classList.remove("hidden");
-  headerClose.classList.add("hidden");
+  headerDate.classList.toggle("hidden");
+  headerClose.classList.toggle("hidden");
 }
 
 // 添加事件监听器

@@ -114,6 +114,7 @@
   }
 
   .assets {
+    position: relative;
     display: flex;
     .assets-box {
       margin: 0 auto;
@@ -130,8 +131,6 @@
     }
 
     .assets-card {
-      position: relative;
-      top: 0px  ;
       display: flex;
       justify-content: center;
       justify-content: space-between;
@@ -150,7 +149,20 @@
         display: flex;
         font-size: 20px;
         font-weight: 700;
+        transition: transform 0.2s cubic-bezier(0.22, 0.61, 0.36, 1);
       }
+    }
+
+    .assets-card.active {
+      position: relative;
+      .assets-card-amount {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 25px;
+      }
+      // transform: translateY(-250px); /* 调整这个值让它滑到你想要的位置 */
     }
 
     .sell {
@@ -188,6 +200,9 @@
     @media screen and (max-width: 768px) {
       .assets-card {
         margin: 0px auto;
+      }
+
+      .assets-card:not(.sell) {
         margin-top: -120px;
       }
     }
@@ -196,8 +211,8 @@
   @media screen and (max-width: 768px) {
     .assets {
       flex-direction: column;
+
       .assets-box {
-        margin-top: 150px;
         flex-direction: column;
         max-width: 350px;
       }
